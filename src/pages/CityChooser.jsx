@@ -68,21 +68,10 @@ export default function CityChooser() {
     <div className="iz" aria-label="INAYA Startseite">
       <div className="burst" aria-hidden="true">
         <svg viewBox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="spray" x="-40%" y="-40%" width="180%" height="180%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.05 0.055" numOctaves="2" seed="7" result="t" />
-              <feDisplacementMap in="SourceGraphic" in2="t" scale="22" />
-            </filter>
-            <filter id="dust">
-              <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="3" result="n" />
-              <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 0  0 0 0 0 0.9  0 0 0 .8 0" result="c" />
-              <feComposite in="c" in2="SourceGraphic" operator="in" />
-            </filter>
-          </defs>
-          <g ref={raysRef} className="rays" fill="#ec00d2" filter="url(#spray)" />
+          <g ref={raysRef} className="rays" fill="#ec00d2" />
           <g className="core">
             <path ref={coreRef} fill="#ff00e6" />
-            <path ref={core2Ref} fill="#ff5cf3" filter="url(#dust)" />
+            <path ref={core2Ref} fill="#ff5cf3" opacity="0.85" />
           </g>
         </svg>
       </div>
