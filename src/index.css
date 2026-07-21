@@ -26,3 +26,30 @@ body {
     @apply inline-block bg-[#725792] text-white px-4 py-2 text-base transition-colors hover:bg-turc hover:text-gris cursor-pointer;
   }
 }
+
+/* ---- INAYA city opener (eye landing, used by CityChooser) ---- */
+.iz{position:relative;min-height:100dvh;width:100%;background:#E9C7F5;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;isolation:isolate}
+.iz .burst{position:absolute;inset:-12%;display:flex;align-items:center;justify-content:center;z-index:1}
+.iz .burst svg{width:100%;height:100%;overflow:visible}
+.iz .rays{transform-origin:50% 50%;animation:iz-spin 140s linear infinite}
+.iz .core{transform-origin:50% 50%;animation:iz-pulse 5s ease-in-out infinite}
+@keyframes iz-spin{to{transform:rotate(360deg)}}
+@keyframes iz-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.iz .grain{position:absolute;inset:0;z-index:4;pointer-events:none;mix-blend-mode:multiply;opacity:.32;background-size:220px 220px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.iz .stack{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;width:90%;max-width:760px}
+.iz .eye{width:40%;max-width:300px;overflow:visible}
+.iz .eyeParts{transform-box:fill-box;transform-origin:center;transition:transform .12s ease;transform:scaleY(.06)}
+.iz .logo{width:64%;max-width:460px;margin-top:1em;opacity:0;transform:translateY(10px);animation:iz-rise .9s ease-out 1.4s forwards}
+.iz .logo path{fill:#2b17ff}
+.iz .cs{display:flex;gap:0 .7em;flex-wrap:wrap;justify-content:center;margin-top:.5em;line-height:.9;z-index:5}
+.iz .ct{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(26px,7vw,50px);letter-spacing:.01em;color:#2b17ff;text-decoration:none;cursor:pointer;opacity:0;transform:translateY(12px);transition:transform .12s,color .12s}
+.iz .cs .ct:nth-child(1){animation:iz-rise .6s ease-out 1.8s forwards}
+.iz .cs .ct:nth-child(2){animation:iz-rise .6s ease-out 1.95s forwards}
+.iz .cs .ct:nth-child(3){animation:iz-rise .6s ease-out 2.1s forwards}
+.iz .ct:hover,.iz .ct:focus-visible{color:#ff00e6;transform:translateY(-3px) scale(1.05);outline:none}
+@keyframes iz-rise{to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){
+  .iz *{animation-duration:.001s!important;animation-delay:0s!important}
+  .iz .logo,.iz .ct{opacity:1!important;transform:none!important}
+  .iz .eyeParts{transform:scaleY(1)!important}
+}

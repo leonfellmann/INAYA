@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidarisch mit geflüchteten Frauen & genderqueeren Menschen|Inaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="assets/app.js"></script>
+    <link rel="stylesheet" href="/zu/assets/app.css">
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .text-h1 {
+    @apply text-3xl text-gris font-bold tracking-wide leading-snug pb-[40px] px-[30px]
+  }
+
+  .text-h2 {
+    @apply text-2xl font-semibold leading-snug tracking-wide px-[30px] pb-[30px] text-browndark
+  }
+
+  .text-content {
+    @apply text-gris font-normal tracking-wide leading-loose pb-[60px] px-[30px]
+  }
+
+  #footer {
+    @apply bg-gris text-lila font-extralight tracking-wide py-[30px] px-[30px]
+  }
+
+  #header { 
+    @apply bg-lila px-[30px] pt-[5px] pb-[5px] w-full fixed
+  }
+    }
+
+    .buttonmerch {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 1px 5px;
+  text-align: center;
+  font-size: 16px;
+  opacity: 1;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttonmerch:hover {opacity: 0.6}
+
+    .button100in10 {
+  background-color: #725792;
+  border: none;
+  color: white;
+  padding: 1px 5px;
+  text-align: center;
+  font-size: 16px;
+  opacity: 1;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: bold;
+  cursor: pointer;
+}
+
+.button100in10:hover {background: #7af6ca}
+
+  </style>
+  <script src="https://unpkg.com/reframe.js@latest/dist/reframe.min.js"></script>
+</head>
+  
+
+    <body
+        x-data="{ open: false, openPopup: false }" 
+        class="text-body bg-gradient-to-b from-purple-300 to-lila w-full" style="font-family: 'Montserrat', sans-serif;"
+    >
+
+        <div 
+            x-show="open"
+            x-on:click.away="open = false"
+            class="fixed top-0 left-0 w-full bg-browndark text-2xl font-bold tracking-wide leading-none pt-[60px] pb-[30px] px-[30px] z-50"
+            x-transition
+        >
+            
+            <div class="absolute top-7 right-7"> 
+                <button 
+                    x-on:click="open = !open"
+                    class="w-[80px]"
+                >
+                    <img src="/zu/assets/zu.svg" alt="Close icon">
+                </button>
+            </div>
+
+            <ul class="pt-[70px]">
+                  <li class="text-turc pb-[30px]"> <a href="/zu/de/zhilfegeben.html">Ich möchte unterstützen</a></li>
+                  <li class="text-lima pb-[30px]"> <a href="/zu/de/zhilfebekommen.html">Ich brauche Unterstützung</a></li>
+                  <li class="text-lila pb-[30px]"><a href="/zu/de/zuberuns.html">Warum INAYA</a></li>
+                  <li class="text-lila pb-[30px]"> <a href="/zu/de/zpartner.html">Freund:innen</a> </li>
+                  <li class="text-lima pb-[30px]"> <a href="https://merch.inaya-soli.ch">Soli-Shop</a></li>
+                  <li> <a href="/zu/index.html"><div class="w-[200px]"><img src="assets/boca.svg" alt="language icon"></div></a></li>
+            </ul>
+        </div><!-- end menu -->
+
+    <div 
+            x-show="openPopup"
+            x-on:click.away="openPopup = false"
+            class="fixed top-0 left-0 w-full bg-turc text-browndark font-bold tracking-wide leading-normal pt-[60px] pb-[30px] px-[30px] z-50"
+            x-transition>
+            
+                <div class="absolute top-600 right-7"> </div>
+
+            <div class="px-[30px] max-w-3xl mx-auto mb-10">
+
+                <div class="text-browndark">
+                    <span class="font-normal text-1xl text-gris">Schreib uns auf:</span><br> 
+                    <a href="mailto:inaya-zuerich@immerda.ch">inaya-zuerich@immerda.ch</a> 
+                </div>
+                
+                <div class="pt-[30px]"> <span class="font-normal text-1xl text-gris">Spenden an:</span><br>
+                    Verein Inaya Zürich <br>
+                    Konto: 16-23816-2<br>
+                    IBAN: CH63 0900 0000 1602 3816 2<br>
+                    8005 Zürich
+                </div>
+                <div> <span class="font-normal text-1xl text-gris">
+                    <a href="https://donate.raisenow.io/xwxqm?lng=de">oder hier direkt online</a>
+                </span>
+                </div>
+
+                <div class="absolute top-600 right-7"> 
+                        <button 
+                             x-on:click="openPopup = !openPopup"
+                            class="w-[80px]">
+                            <img src="assets/zu.svg" alt="Close icon">
+                        </button>
+                </div>
+            </div>
+
+    </div>
+        <!-- end popup -->
+
+<header id="header"> 
+
+    <div class="left-0 py-2">
+                
+            <div class="w-[180px]">
+                    <a href="/zu/de/index.html">
+                    <img src="assets/kleininaya.svg" alt="kleininaya"></a> 
+            </div>
+
+            <div class="w-[180px] text-browndark font-semibold p-2">
+                    <a href="/index.html">
+                    basel | zürich | bern</a> 
+            </div>
+            
+            <div class="fixed top-0 right-7">
+                    <button x-on:click="open = !open" class="w-[80px]">
+                        <img src="assets/menu.svg" alt="menu icon" a herf=""> 
+                    </button>
+            </div>
+               
+            <div class="fixed right-8 pt-[180px]">
+                <button 
+                    x-on:click="openPopup = !openPopup"
+                    class="w-[70px] pt-[10px]">
+                    <img src="assets/geben.svg" alt="rundes icon türkis mit schwarzem Auge und Text !Act! " a herf="">  
+                </button>
+            </div>
+
+     </div>
+
+</header>
+
+<main class="w-full pt-[72px]"> 
+
+    <div class=""><img src="assets/bg.svg" alt="hintergrund"></div> 
+        
+        <div class="max-w-3xl mx-auto mb-10 pt-[80px]">
+                
+                <div class="text-h1">Solidarisch mit geflüchteten Frauen & genderqueeren Menschen</div>
+                    <div class="text-content">
+                     INAYA ist eine lokal basierte Struktur für geflüchtete Frauen und genderqueere Menschen. Sie möchte sich direkt solidarisieren. Eine Priorität ist dabei eine Umverteilung von benötigtem Geld von denjenigen, die genug haben, zu jenen, die zu wenig Geld haben. So sollen Grundbedürfnisse sicher und langfristig gedeckt werden. Für geflüchtete Frauen und genderqueere Menschen sind bestehende Unterstützungsstrukturen nicht vorhanden oder schwer zugänglich. Deswegen INAYA!
+                    </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto mb-10">
+                <div class="text-h1">Aktuelle Informationen </div>
+
+                <div class="text-h2 pt-[30px]"><b>100 Daueraufträge in 10 Tagen - für eine solidarische Umverteilung</b></div>
+                           <div class="width-200px p-2"> 
+                        <a href="https://inayasolizh.zahls.ch/pay?tid=8693437b"><img src="/zu/assets/INAYA_100in10_WEBSEITE_5x4_01.png" alt="Die Titelseite des Inaya Kalenders 2026 und Teaser zu zwei weiteren Monaten auf einem violetten Hintergrund"></a>
+                    </div>
+                     <div class="text-content"> <br>
+                        Zwischen dem 15. - 24. Januar 2026 sammelt INAYA Zürich 100 neue Daueraufträge. Wieso?<br><br>
+
+                        Für migrantische Frauen und genderqueere Menschen im Asyl- oder Migrationswesen sind bestehende Unterstützungsstrukturen in Zürich teilweise nicht vorhanden oder schwer zugänglich. Durch INAYA werden Wissen, Zugänge und Geld geteilt und umverteilt. INAYA unterstützt dort, wo staatliche Strukturen versagen – damit Grundbedürfnisse wie z.B. sicherer Wohnraum ausserhalb der Camps, Mobilität oder geschlechtsaffirmierende Prozesse gedeckt werden können. Neben Einzelspenden sind dafür Daueraufträge von grosser Wichtigkeit - sie geben Planungssicherheit und garantieren langfristige Unterstützung. Jeder Dauerauftrag, ob klein oder gross, unterstützt direkt Menschen in finanziellen Notsituationen.
+                        <br><br>
+
+                        <b>Wenn du die Arbeit von INAYA wichtig findest und genug Geld zum Teilen übrig hast, schliesse zwischen dem 15.-24. Januar einen Dauerauftrag für INAYA Zürich ab und erhalte ein einzigartiges und selbstgedrucktes A3 Plakat mit Sujet deiner Wahl! Hier gehts zur Errichtung des Dauerauftrags:</b>
+
+                        <br><br>
+                        <a href="https://inayasolizh.zahls.ch/de/pay?tid=8693437b" class="button100in10">Dauerauftrag einrichten</a>
+
+                        <br><br>
+
+<hr style="border-color: #91827D;">
+
+                   <div class="text-h2 pt-[30px]"><b>Der INAYA Soli-Kalender 2026 – frisch gedruckt!   </b></div>
+                           <div class="width-200px p-2"> 
+                        <a href="https://merch.inaya-soli.ch"><img src="/zu/assets/Kalender2026.jpeg" alt="Die Titelseite des Inaya Kalenders 2026 und Teaser zu zwei weiteren Monaten auf einem violetten Hintergrund"></a>
+                    </div>
+                     <div class="text-content"> <br>
+                    Perfekt, um in der Chaos-WG Termine nicht zu vergessen, Oma oder Mama zu beeindrucken, das Hipster-Büro aufzupeppen oder damit die Wand eures geheimen Hauptquartiers weniger trostlos wirkt!<br><br>
+                
+                        <ul class="text-left" style="list-style-type:disc;">
+                  <li>Preis: für 35.– exklusive Versand gehört er dir </li>
+                <li>Online bestellen: <a href="https://merch.inaya-soli.ch/merch/" class="buttonmerch"><b>merch.inaya-soli.ch</b></a></li>                  
+                <li>In Buchhandlungen kaufen ab dem 1. November 2025 solange Vorrat reicht bei:</li>
+                </ul>
+                        <a href="https://paranoiacity.ch/">- Paranoia City, Zürich</a><br>
+                        <a href="https://www.volkshausbuch.ch/">- Volkshaus, Zürich</a><br>
+                        <a href="https://www.kapitel10.ch/">- Kapitel 10, Zürich</a><br>
+                        <a href="https://www.betuliusundtoechter.ch/angebot-laden/">- Betulius und Töchter, Zürich</a><br>
+                        <a href="https://www.sausbraus.ch/">- Saus & Braus, Zürich</a><br>
+                        <a href="https://www.spheres.cc/">- Sphères, Zürich</a><br>
+                        <a href="https://www.park-platz.org/de">- Park Platz, Zürich</a><br>
+                        <a href="https://condomeria.ch">- Condomeria, Zürich</a><br>
+                        <a href="https://www.1002f.ch">- 1002F (mille et deux feuilles), Zürich</a><br>
+                        <a href="https://www.karldergrosse.ch">- Karl der Grosse, Zürich</a><br>
+                        <a href="https://www.dasgleis.ch/">- Das Gleis, Zürich</a><br>
+                        <a href="https://beawet.li/kontakt/">- Buchbinderwerstatt Beatrice Wetli, Zürich</a><br>
+                        <a href="https://www.museevisionnaire.ch/">- Musée Visionnaire, Zürich</a><br><br>
+
+                        Warum Soli?<br><br>
+
+Alle Einnahmen gehen an geflüchtete Frauen und genderqueere Menschen. Wir sammeln Geld, um dort zu unterstützen, wo staatliche Strukturen versagen – damit Grundbedürfnisse wie Miete, ÖV-Tickets oder Gesundheitskosten abgesichert sind.<br><br>
+
+Für Fragen rund um deine Bestellung erreichst du uns unter: <a href="mailto:spenden@inaya-soli.ch">spenden@inaya-soli.ch</a> <br><br>
+                     </div>
+                
+
+
+                   
+        </div>
+</main>   
+  
+         <footer id="footer" class="bg-purple-800 text-purple-300 font-extralight tracking-wide py-[30px] px-[30px]">
+    <ul class="max-w-3xl mx-auto mb-10 text-center">
+      <li> <a href="mailto:inaya-zuerich@immerda.ch">Verein Inaya Zürich // inaya-zuerich@immerda.com</a></li>
+                  <li> Konto: 16-23816-2 </li>  
+                  <li> IBAN: CH63 0900 0000 1602 3816 2</li>
+                  <li> 8005 Zürich</li><br>
+                  <li> <a href="https://inaya-soli.ch/zu/de/zDatenschutzerklärungundAGBs.html">AGBs und Datenschutz</a></li>
+    </ul>
+  </footer>
+  </body>
+</html>
