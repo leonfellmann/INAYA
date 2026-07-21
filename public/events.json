@@ -1,0 +1,15 @@
+{
+  "_hinweis": "Anstehende Events hier eintragen. 'ticketUrl' ist z.B. der Eventfrog-Link. Vergangene Events werden automatisch ausgeblendet. 'title' pro Sprache, Fallback auf 'de'.",
+  "events": [
+    {
+      "date": "2026-09-12",
+      "time": "18:00",
+      "location": "Zürich",
+      "title": {
+        "de": "Beispiel: Soli-Bar (bitte ersetzen oder löschen)",
+        "en": "Example: Soli-Bar (please replace or delete)"
+      },
+      "ticketUrl": ""
+    }
+  ]
+}

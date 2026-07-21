@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/datenschutz.html", "destination": "/datenschutz.html" },
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ]
+}

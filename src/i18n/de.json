@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Solidarisch mit geflüchteten Frauen & genderqueeren Menschen|Inaya",
+    "dir": "ltr",
+    "isPlaceholder": false
+  },
+  "nav": {
+    "give": "Ich möchte unterstützen",
+    "get": "Ich brauche Unterstützung",
+    "about": "Warum INAYA",
+    "friends": "Freund:innen",
+    "shop": "Soli-Shop",
+    "menuItemsAsFoundInMenu": [
+      "Ich möchte unterstützen",
+      "Ich brauche Unterstützung",
+      "Warum INAYA",
+      "Freund:innen",
+      "Soli-Shop"
+    ]
+  },
+  "contactPopup": {
+    "writeUs": "Schreib uns auf:",
+    "donateTo": "Spenden an:",
+    "donateDetails": "Spenden an: Verein Inaya Zürich Konto: 16-23816-2 IBAN: CH63 0900 0000 1602 3816 2 8005 Zürich",
+    "onlineDonation": "oder hier direkt online",
+    "onlineDonationHref": "https://donate.raisenow.io/xwxqm?lng=de",
+    "email": "inaya-zuerich@immerda.ch"
+  },
+  "home": {
+    "title": "Solidarisch mit geflüchteten Frauen & genderqueeren Menschen",
+    "intro": "INAYA ist eine lokal basierte Struktur für geflüchtete Frauen und genderqueere Menschen. Sie möchte sich direkt solidarisieren. Eine Priorität ist dabei eine Umverteilung von benötigtem Geld von denjenigen, die genug haben, zu jenen, die zu wenig Geld haben. So sollen Grundbedürfnisse sicher und langfristig gedeckt werden. Für geflüchtete Frauen und genderqueere Menschen sind bestehende Unterstützungsstrukturen nicht vorhanden oder schwer zugänglich. Deswegen INAYA!",
+    "newsTitle": "Aktuelle Informationen",
+    "newsBody": "Aktuell nichts Neues"
+  },
+  "give": {
+    "sections": [
+      {
+        "heading": "Ich möchte unterstützen",
+        "body": "Damit wir INAYA als Solistruktur weiter ausbauen und Menschen auch nachhaltig unterstützen können, wäre es mega nice, wenn ihr euch finanziell mit INAYA solidarisiert. Am sinnvollsten sind Daueraufträge (auch niedrige). So können längerfristig Perspektiven ermöglicht werden. Dazu wird das Geld folgendermassen umverteilt: Um finanzielle Notsituationen zu überbrücken, die sich durch die Covid Pandemie noch verschärft haben; um sicheren Wohnraum ausserhalb des Camps schaffen und/oder um selbstbestimmte Rechtsberatung während dem Asylverfahren gewährleisten zu können. Anders als bei gängigen Organisationen gelangt dein Beitrag zu 100% in die oben genannten Zwecke.",
+        "links": []
+      },
+      {
+        "heading": "Verein Inaya Zürich // inaya-zuerich@immerda.com Konto: 16-23816-2 IBAN: CH63 0900 0000 1602 3816 2 8005 Zürich",
+        "body": "",
+        "links": [
+          {
+            "label": "Bank QR Code als Bild",
+            "href": "https://donate.raisenow.io/xwxqm?lng=de"
+          },
+          {
+            "label": "Online spenden",
+            "href": "https://donate.raisenow.io/xwxqm?lng=de"
+          }
+        ]
+      },
+      {
+        "heading": "Oder mit TWINT:",
+        "body": "Verein INAYA Zürich",
+        "links": []
+      },
+      {
+        "heading": "<3 Danke",
+        "body": "INAYA ist auch auf Weiteres angewiesen, wie beispielsweise solidarisches Gesundheitspersonal, Rechtsberatung und vermietbare Wohnungen, die mit INAYA vernetzt werden können. Hast du weitere andere Ressourcen, welche hier nicht aufgelistet sind, die du gerne mit INAYA teilen möchtest oder willst Teil der Struktur INAYA werden? Melde dich mega gerne bei uns:",
+        "links": []
+      },
+      {
+        "heading": "inaya-zuerich@immerda.ch",
+        "body": "",
+        "links": [
+          {
+            "label": "inaya-zuerich@immerda.ch",
+            "href": "mailto:inaya-zuerich@immerda.ch"
+          }
+        ]
+      }
+    ]
+  },
+  "get": {
+    "sections": [
+      {
+        "heading": "Ich brauche Unterstützung",
+        "body": "INAYA unterstützt dich wenn möglich finanziell, bei der Wohnungs- oder Jobsuche, bei der Begleitung von Terminen oder vernetzt dich mit solidarischen Ärzt*innen/ Rechtsberater*innen/ Dolmetscher*innen oder entsprechenden NGO’s. Melde dich in der Sprache deiner Wahl gerne bei uns:",
+        "links": []
+      },
+      {
+        "heading": "inaya-zuerich@immerda.ch",
+        "body": "",
+        "links": [
+          {
+            "label": "inaya-zuerich@immerda.ch",
+            "href": "mailto:inaya-zuerich@immerda.ch"
+          }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "heading": "Warum INAYA",
+        "body": "Geflüchtete Frauen und genderqueere Menschen erleben in unserer Gesellschaft eine Mehrfachunterdrückung, die sich auch in den vorhandenen Solistrukturen in Basel widerspiegelt. Diese unterstützen bis anhin mehrheitlich cis-Männer. Diese Mehrfachunterdrückung zeigt sich auch an anderen Stellen. Im Bundesasylzentrum beispielsweise werden Frauen und genderqueere Menschen in Massenlager gezwungen, die für sie einen besonders unsicheren Wohnraum darstellen. Der Zugang zu gynäkologischen Behandlungen wird massiv erschwert oder verwehrt. Weiter sind Frauen und genderqueere Menschen finanziell zusätzlich belastet; dies beispielsweise aufgrund vom Mehrbedarf an Hygieneartikeln. Seit dem Bestehen INAYAs zeigte sich ausserdem, dass es für trans Personen kaum möglich ist, im Bundesasylzentrum Zugang zu notwendigen geschlechtsaffirmierenden Prozessen zu erhalten, da es dort keinerlei Beratung oder medizinische Unterstützung in diesem Bereich gibt. Es sind asylbedingte und finanzielle; sprich nationalistisch-rassistische und klassistische Hürden, die hier mit einem grundlegend cissexistischen System zusammenkommen und die psycho-soziale Situation von trans Menschen beinahe untragbar machen. INAYA als Solistruktur möchte sich daher direkt mit Frauen und genderqueeren Menschen solidarisieren und so als Netzwerk agieren, das solidarische Personen und Organisationen mit Personen, die Unterstützung suchen, verbindet. Konkret heisst das, dass INAYA Person in unterschiedlichen Lebensbereichen unterstützt und dabei die Vernetzung mit solidarischen Ärzt*innen, Dolmetscher*innen oder bestehenden Institutionen, wie z. B. der Freiplatzaktion und dem Transgender Network Switzerlands nutzt. Solche Beratungsstellen setzen Personen mit INAYA in Verbindung, wenn ihre eigenen Ressourcen nicht ausreichen – und INAYA wiederum organisiert zusammen mit den betroffenen Menschen Termine bei ihnen, wenn das nötig ist. Die Unterstützung kann sowohl in finanzieller Form stattfinden als auch daraus bestehen, unzugängliche Informationen ausfindig zu machen, asylsuchende Personen zu Fachstellen zu begleiten oder Anreisen wie auch Übersetzung zu organisieren. Bei der Wohnungssuche kann INAYA ausserdem an lokale Netzwerke vermitteln und auch hier in finanzieller Form unterstützen. INAYA ist eine staatlich unabhängige Struktur, die von Frauen und genderqueeren Personen getragen wird. Mit \"Frauen\" meinen wir trans-, cis- und intergeschlechtliche Menschen, die sich als \"Frau\" und/oder \"weiblich\" verorten. \"(Gender)queere Menschen\" verwenden wir als Begriff um (nicht-weibliche) trans, non-binäre, agender, gender-diverse und weitere geschlechtliche Lebensrealitäten ausserhalb einer strikten binären (auch kolonialen) Logik anzusprechen. Also: alle Menschen, die von Transfeindlichkeit/Cissexismus und Queerfeindlichkeit strukturell negativ betroffen sind. Denn, wir sind alle betroffen von diesen Strukturen - für Menschen welche nicht in diese gesellschaftliche MehrheitsLogiken passen hat diese Betroffenheit jedoch krasse negative Auswirkungen. Wir leisten diese Unterstützung auch aus der Überzeugung, dass Geschlecht auf Selbstdefinition basiert und beziehen klar Stellung gegen transfeindliche, transmisogyne und cissexistische Kategorisierungen.",
+        "links": []
+      }
+    ]
+  },
+  "friends": {
+    "sections": [
+      {
+        "heading": "Freund:innen",
+        "body": "INAYA steht im engen Austausch mit ihren Freund:innen: Inaya Basel | Feministisches Streikhaus | Telefon gegen Gewalt | Transgender Network Switzerland | Solinetz | Bündnis Wo Unrecht zu Recht wird | Brava | Milchjugend | FIZ Fachstelle Frauenhandel und Frauenmigration | LOS Lesbenorganisation Schweiz | Zurich Legal | und Einige mehr!",
+        "links": [
+          {
+            "label": "Feministisches Streikhaus",
+            "href": "https://streikhaus.ch/"
+          },
+          {
+            "label": "Telefon gegen Gewalt",
+            "href": "https://telefon-gegen-gewalt.ch/"
+          },
+          {
+            "label": "Transgender Network Switzerland",
+            "href": "https://www.tgns.ch/de/"
+          },
+          {
+            "label": "Solinetz",
+            "href": "https://solinetz-zh.ch/"
+          },
+          {
+            "label": "Bündnis Wo Unrecht zu Recht wird",
+            "href": "https://wo-unrecht-zu-recht-wird.ch/"
+          },
+          {
+            "label": "Brava",
+            "href": "https://www.brava-ngo.ch/"
+          },
+          {
+            "label": "Milchjugend",
+            "href": "https://milchjugend.ch/"
+          },
+          {
+            "label": "FIZ Fachstelle Frauenhandel und Frauenmigration",
+            "href": "https://www.fiz-info.ch/"
+          },
+          {
+            "label": "LOS Lesbenorganisation Schweiz",
+            "href": "https://www.los.ch/"
+          },
+          {
+            "label": "Zurich Legal",
+            "href": "https://zurichlegal.ch/"
+          }
+        ]
+      }
+    ]
+  },
+  "cs": {
+    "text": "Coming soon"
+  },
+  "footer": {
+    "orgLine": "Verein Inaya Zürich // inaya-zuerich@immerda.ch",
+    "account": "Konto: 16-23816-2",
+    "iban": "IBAN: CH63 0900 0000 1602 3816 2",
+    "city": "8005 Zürich",
+    "privacyLabel": "AGBs und Datenschutz"
+  }
+}

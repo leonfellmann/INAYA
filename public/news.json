@@ -1,0 +1,13 @@
+{
+  "_hinweis": "Neuigkeiten hier eintragen — neueste zuerst. 'text' pro Sprache; fehlende Sprachen fallen auf 'de' zurück. Diese Datei kann direkt auf GitHub bearbeitet werden, die Website zeigt Änderungen nach dem nächsten Deploy.",
+  "entries": [
+    {
+      "date": "2026-07-14",
+      "text": {
+        "de": "Unsere Website hat ein neues Zuhause — neu mit Soli-Shop!",
+        "en": "Our website has a new home — now with a Soli-Shop!",
+        "fr": "Notre site a une nouvelle maison — désormais avec un Soli-Shop !"
+      }
+    }
+  ]
+}

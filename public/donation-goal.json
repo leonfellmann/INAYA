@@ -1,0 +1,11 @@
+{
+  "_hinweis": "Spendenziel-Thermometer. 'enabled' auf true setzen, Zahlen in CHF. 'current' regelmässig von Hand aktualisieren (oder später via zahls.ch-API automatisieren).",
+  "enabled": true,
+  "goalChf": 5000,
+  "currentChf": 1250,
+  "label": {
+    "de": "Monatsziel Daueraufträge",
+    "en": "Monthly standing-order goal",
+    "fr": "Objectif mensuel d'ordres permanents"
+  }
+}

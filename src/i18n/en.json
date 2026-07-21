@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "In solidarity with refugee women & genderqueer people | Inaya",
+    "dir": "ltr",
+    "isPlaceholder": false
+  },
+  "nav": {
+    "give": "I want to support",
+    "get": "I need support",
+    "about": "Why INAYA",
+    "friends": "Friends",
+    "shop": "Soli-Shop",
+    "menuItemsAsFoundInMenu": [
+      "I want to support",
+      "I need support",
+      "Why INAYA",
+      "Friends",
+      "Soli-Shop"
+    ]
+  },
+  "contactPopup": {
+    "writeUs": "Write to us at:",
+    "donateTo": "Donate to:",
+    "donateDetails": "",
+    "onlineDonation": "or donate directly online here",
+    "email": "inaya-zuerich@immerda.ch"
+  },
+  "home": {
+    "title": "In solidarity with refugee women & genderqueer people",
+    "intro": "INAYA is a locally based structure for refugee women and genderqueer people. It aims to show solidarity directly. One priority is redistributing needed money from those who have enough to those who have too little. This way, basic needs can be covered securely and in the long term. For refugee women and genderqueer people, existing support structures are either non-existent or hard to access. That's why INAYA!",
+    "newsTitle": "Current information",
+    "newsBody": "Nothing new at the moment"
+  },
+  "give": {
+    "sections": [
+      {
+        "heading": "I want to support",
+        "body": "So that we can keep building INAYA as a solidarity structure and support people sustainably, it would be mega nice if you showed financial solidarity with INAYA. Standing orders (even small ones) are the most useful, as they make longer-term perspectives possible. The money is redistributed as follows: to bridge financial emergencies, which the Covid pandemic has made even worse; to create safe housing outside the camp; and/or to guarantee self-determined legal advice during the asylum procedure. Unlike with mainstream organisations, 100% of your contribution goes to the purposes named above.",
+        "links": []
+      },
+      {
+        "heading": "<3 Thank you",
+        "body": "INAYA also depends on other things, such as solidary health workers, legal advice and rentable flats that can be connected with INAYA. Do you have other resources not listed here that you would like to share with INAYA, or do you want to become part of the INAYA structure? We'd love to hear from you:",
+        "links": []
+      },
+      {
+        "heading": "inaya-zuerich@immerda.ch",
+        "body": "",
+        "links": [
+          {
+            "label": "inaya-zuerich@immerda.ch",
+            "href": "mailto:inaya-zuerich@immerda.ch"
+          }
+        ]
+      }
+    ]
+  },
+  "get": {
+    "sections": [
+      {
+        "heading": "I need support",
+        "body": "Where possible, INAYA supports you financially, with looking for housing or a job, with accompanying you to appointments, or connects you with solidary doctors, legal advisors, interpreters or relevant NGOs. Feel free to contact us in the language of your choice:",
+        "links": []
+      },
+      {
+        "heading": "inaya-zuerich@immerda.ch",
+        "body": "",
+        "links": [
+          {
+            "label": "inaya-zuerich@immerda.ch",
+            "href": "mailto:inaya-zuerich@immerda.ch"
+          }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "heading": "Why INAYA",
+        "body": "Refugee women and genderqueer people experience multiple forms of oppression in our society, which is also reflected in the existing solidarity structures in Basel. Until now, these have mostly supported cis men. This multiple oppression also shows itself elsewhere. In the federal asylum centre, for example, women and genderqueer people are forced into mass accommodation that is an especially unsafe living space for them. Access to gynaecological treatment is made massively difficult or denied. Women and genderqueer people also carry an additional financial burden, for example because of the extra need for hygiene products. Since INAYA has existed, it has also become clear that it is almost impossible for trans people in the federal asylum centre to get access to necessary gender-affirming processes, as there is no counselling or medical support in this area at all. These are asylum-related and financial barriers — that is, nationalist-racist and classist barriers — which combine here with a fundamentally cissexist system and make the psycho-social situation of trans people almost unbearable. INAYA as a solidarity structure therefore wants to stand in direct solidarity with women and genderqueer people and act as a network connecting solidary people and organisations with people looking for support. Concretely, this means that INAYA supports people in different areas of life, drawing on connections with solidary doctors, interpreters or existing institutions such as the Freiplatzaktion and the Transgender Network Switzerland. Such counselling centres put people in touch with INAYA when their own resources are not enough — and INAYA in turn organises appointments with them together with the people concerned when necessary. Support can take financial form as well as consist of tracking down inaccessible information, accompanying people seeking asylum to specialist services, or organising travel and interpretation. When it comes to looking for housing, INAYA can also refer people to local networks and provide financial support here too. INAYA is a structure independent of the state, carried by women and genderqueer people. By \"women\" we mean trans, cis and intersex people who identify as \"woman\" and/or \"female\". We use \"(gender)queer people\" as a term to address (non-female) trans, non-binary, agender, gender-diverse and other gendered realities outside a strict binary (and colonial) logic. In other words: all people who are structurally negatively affected by transphobia/cissexism and queerphobia. Because we are all affected by these structures — but for people who do not fit into these majority logics of society, this has severe negative consequences. We also provide this support out of the conviction that gender is based on self-definition, and we take a clear stand against transphobic, transmisogynist and cissexist categorisations.",
+        "links": []
+      }
+    ]
+  },
+  "friends": {
+    "sections": [
+      {
+        "heading": "Friends",
+        "body": "INAYA is in close exchange with its friends: Inaya Basel | Feministisches Streikhaus | Telefon gegen Gewalt | Transgender Network Switzerland | Solinetz | Bündnis Wo Unrecht zu Recht wird | Brava | Milchjugend | FIZ Fachstelle Frauenhandel und Frauenmigration | LOS Lesbenorganisation Schweiz | Zurich Legal | and several more!",
+        "links": [
+          { "label": "Feministisches Streikhaus", "href": "https://streikhaus.ch/" },
+          { "label": "Telefon gegen Gewalt", "href": "https://telefon-gegen-gewalt.ch/" },
+          { "label": "Transgender Network Switzerland", "href": "https://www.tgns.ch/de/" },
+          { "label": "Solinetz", "href": "https://solinetz-zh.ch/" },
+          { "label": "Bündnis Wo Unrecht zu Recht wird", "href": "https://wo-unrecht-zu-recht-wird.ch/" },
+          { "label": "Brava", "href": "https://www.brava-ngo.ch/" },
+          { "label": "Milchjugend", "href": "https://milchjugend.ch/" },
+          { "label": "FIZ Fachstelle Frauenhandel und Frauenmigration", "href": "https://www.fiz-info.ch/" },
+          { "label": "LOS Lesbenorganisation Schweiz", "href": "https://www.los.ch/" },
+          { "label": "Zurich Legal", "href": "https://zurichlegal.ch/" }
+        ]
+      }
+    ]
+  },
+  "cs": {
+    "text": "Coming soon"
+  },
+  "footer": {
+    "orgLine": "Verein Inaya Zürich // inaya-zuerich@immerda.ch",
+    "account": "Account: 16-23816-2",
+    "iban": "IBAN: CH63 0900 0000 1602 3816 2",
+    "city": "8005 Zürich",
+    "privacyLabel": "Terms & privacy policy"
+  }
+}
