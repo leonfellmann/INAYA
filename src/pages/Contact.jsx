@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { FORMSPREE_ENDPOINT, CONTACT_EMAIL } from '../data/config'
+import { FORMSPREE_ENDPOINT } from '../data/config'
 
 export default function Contact() {
-  const { t } = useOutletContext()
+  const { t, city } = useOutletContext()
   const s = t.store
+  // Stadtspezifische Kontakt-E-Mail
+  const contactEmail = city.email
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   async function onSubmit(e) {
@@ -52,17 +54,17 @@ export default function Contact() {
           {status === 'error' && (
             <div className="bg-lima p-3 text-gris">
               {s.sendError}{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="underline font-semibold">
-                {CONTACT_EMAIL}
+              <a href={`mailto:${contactEmail}`} className="underline font-semibold">
+                {contactEmail}
               </a>
             </div>
           )}
         </form>
       ) : (
-        // no form endpoint configured yet → friendly mailto fallback
+        // Noch kein Formular-Endpoint → freundlicher mailto-Fallback
         <div className="text-h2 px-[30px]">
-          <a href={`mailto:${CONTACT_EMAIL}`} className="underline">
-            {CONTACT_EMAIL}
+          <a href={`mailto:${contactEmail}`} className="underline">
+            {contactEmail}
           </a>
         </div>
       )}

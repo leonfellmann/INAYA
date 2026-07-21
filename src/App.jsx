@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import CityChooser from './pages/CityChooser'
 import LanguageChooser from './pages/LanguageChooser'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -14,8 +15,14 @@ export default function App() {
   return (
     <CartProvider>
       <Routes>
-        <Route path="/" element={<LanguageChooser />} />
-        <Route path="/:lang" element={<Layout />}>
+        {/* Einstieg: Städtewahl (Basel / Zürich / Bern) */}
+        <Route path="/" element={<CityChooser />} />
+
+        {/* Pro Stadt: Sprachwahl */}
+        <Route path="/:city" element={<LanguageChooser />} />
+
+        {/* Pro Stadt + Sprache: Inhalt */}
+        <Route path="/:city/:lang" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="hilfe-geben" element={<ContentPage section="give" />} />
           <Route path="hilfe-bekommen" element={<ContentPage section="get" />} />
@@ -24,6 +31,7 @@ export default function App() {
           <Route path="shop" element={<Shop />} />
           <Route path="kontakt" element={<Contact />} />
         </Route>
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </CartProvider>

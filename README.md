@@ -1,6 +1,29 @@
-# INAYA Zürich — React Website
+# INAYA — React Website (Basel · Zürich · Bern)
 
-React-Neubau von inaya-soli.ch/zu mit integriertem Soli-Shop (Merch + Spenden).
+React-Neubau von inaya-soli.ch mit drei Städte-Sub-Sites und integriertem
+Soli-Shop (Merch + Spenden) für Zürich.
+
+## Städte-Struktur (3 Sub-Sites)
+
+Die Seite ist in drei Städte gegliedert, weil die Spenden pro Stadt getrennt
+verwaltet werden (eigene Konten, Kontakte, TWINT).
+
+- Einstieg `/` → Städtewahl (`src/pages/CityChooser.jsx`)
+- `/:city` → Sprachwahl der Stadt (`ba` = Basel, `zu` = Zürich, `be` = Bern)
+- `/:city/:lang` → Inhalt (z.B. `/zu/de`, `/ba/fr/hilfe-geben`)
+
+Alle stadtspezifischen Daten (Verein, IBAN/Konto, E-Mail, TWINT-QR,
+Online-Spendenlink, Menüpunkt „Freund:innen" vs. „Netzwerk", Shop ja/nein,
+Instagram, Einleitungstext) stehen zentral in **`src/data/cities.js`**.
+Nur Zürich hat aktuell einen Soli-Shop und einen RaiseNow-Online-Spendenlink.
+
+Offene Punkte:
+- TWINT-QR-Bilder für Basel/Bern werden vorläufig von der alten Live-Seite
+  verlinkt (siehe TODO in `cities.js`) — später lokal unter `public/assets/`
+  ablegen (`twint-basel.png`, `twint-bern.png`).
+- Getrennte Checkout-Konten: `api/checkout.js` liest optional
+  stadtspezifische Vercel-Variablen (`ZAHLS_INSTANCE_ZU`,
+  `ZAHLS_API_SECRET_ZU` usw.), sonst die generischen.
 
 ## Entwicklung
 

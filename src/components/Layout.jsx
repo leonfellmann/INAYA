@@ -2,23 +2,24 @@ import { useState, useEffect } from 'react'
 import { Outlet, Link, useParams, useLocation, Navigate } from 'react-router-dom'
 import { getDict, LANGUAGES, isComplete } from '../i18n'
 import { useCart } from '../context/CartContext'
+import { getCity, isValidCity, onlineDonationHref } from '../data/cities'
 
 const validLangs = LANGUAGES.map((l) => l.code)
 
 export default function Layout() {
-  const { lang } = useParams()
+  const { city, lang } = useParams()
   const location = useLocation()
   const cart = useCart()
   const [menuOpen, setMenuOpen] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
 
-  // close overlays on navigation
+  // Overlays bei Navigation schliessen
   useEffect(() => {
     setMenuOpen(false)
     setPopupOpen(false)
   }, [location.pathname])
 
-  // remember the visitor's language for the auto-redirect on "/"
+  // Sprache merken für den Auto-Redirect auf "/:city"
   useEffect(() => {
     if (validLangs.includes(lang)) {
       try {
@@ -31,16 +32,21 @@ export default function Layout() {
 
   const cartCount = cart ? cart.items.reduce((n, i) => n + i.qty, 0) : 0
 
-  if (!validLangs.includes(lang)) return <Navigate to="/" replace />
+  if (!isValidCity(city)) return <Navigate to="/" replace />
+  if (!validLangs.includes(lang)) return <Navigate to={`/${city}`} replace />
 
+  const c = getCity(city)
   const t = getDict(lang)
+  const base = `/${city}/${lang}`
+  const donateHref = onlineDonationHref(c, lang)
+  const friendsLabel = city === 'be' ? c.friendsLabel : t.nav.friends
 
   return (
     <div
       dir={t.meta.dir}
       className="text-body bg-gradient-to-b from-purple-300 to-lila w-full min-h-screen"
     >
-      {/* menu overlay */}
+      {/* Menü-Overlay */}
       {menuOpen && (
         <div className="fixed top-0 left-0 w-full bg-browndark text-2xl font-bold tracking-wide leading-none pt-[60px] pb-[30px] px-[30px] z-50">
           <div className="absolute top-7 right-7">
@@ -50,32 +56,34 @@ export default function Layout() {
           </div>
           <ul className="pt-[70px]">
             <li className="text-turc pb-[30px]">
-              <Link to={`/${lang}/hilfe-geben`}>{t.nav.give}</Link>
+              <Link to={`${base}/hilfe-geben`}>{t.nav.give}</Link>
             </li>
             <li className="text-lima pb-[30px]">
-              <Link to={`/${lang}/hilfe-bekommen`}>{t.nav.get}</Link>
+              <Link to={`${base}/hilfe-bekommen`}>{t.nav.get}</Link>
             </li>
             <li className="text-lila pb-[30px]">
-              <Link to={`/${lang}/ueber-uns`}>{t.nav.about}</Link>
+              <Link to={`${base}/ueber-uns`}>{t.nav.about}</Link>
             </li>
             <li className="text-lila pb-[30px]">
-              <Link to={`/${lang}/freundinnen`}>{t.nav.friends}</Link>
+              <Link to={`${base}/freundinnen`}>{friendsLabel}</Link>
             </li>
-            <li className="text-lima pb-[30px]">
-              <Link to={`/${lang}/shop`}>
-                {t.store.title}
-                {cartCount > 0 && (
-                  <span className="inline-block bg-turc text-gris text-base rounded-full px-2 ml-2 align-middle">
-                    {cartCount}
-                  </span>
-                )}
-              </Link>
-            </li>
+            {c.hasShop && (
+              <li className="text-lima pb-[30px]">
+                <Link to={`${base}/shop`}>
+                  {t.store.title}
+                  {cartCount > 0 && (
+                    <span className="inline-block bg-turc text-gris text-base rounded-full px-2 ml-2 align-middle">
+                      {cartCount}
+                    </span>
+                  )}
+                </Link>
+              </li>
+            )}
             <li className="text-turc pb-[30px]">
-              <Link to={`/${lang}/kontakt`}>{t.store.contactTitle}</Link>
+              <Link to={`${base}/kontakt`}>{t.store.contactTitle}</Link>
             </li>
             <li>
-              <Link to="/" state={{ chooser: true }}>
+              <Link to={`/${city}`} state={{ chooser: true }}>
                 <div className="w-[200px]">
                   <img src="/assets/boca.svg" alt="Sprache wählen / choose language" />
                 </div>
@@ -85,31 +93,33 @@ export default function Layout() {
         </div>
       )}
 
-      {/* contact / donate popup */}
+      {/* Kontakt- / Spenden-Popup */}
       {popupOpen && (
         <div className="fixed top-0 left-0 w-full bg-turc text-browndark font-bold tracking-wide leading-normal pt-[60px] pb-[30px] px-[30px] z-50">
           <div className="px-[30px] max-w-3xl mx-auto mb-10">
             <div className="text-browndark">
               <span className="font-normal text-gris">{t.contactPopup.writeUs}</span>
               <br />
-              <a href={`mailto:${t.contactPopup.email}`}>{t.contactPopup.email}</a>
+              <a href={`mailto:${c.email}`}>{c.email}</a>
             </div>
             <div className="pt-[30px]">
               <span className="font-normal text-gris">{t.contactPopup.donateTo}</span>
               <br />
-              {t.footer.orgLine.split('//')[0].trim()}
+              {c.org}
               <br />
-              {t.footer.account}
+              {c.konto}
               <br />
-              {t.footer.iban}
+              {c.iban}
               <br />
-              {t.footer.city}
+              {c.cityLine}
             </div>
-            <div className="pt-[10px]">
-              <a href={t.contactPopup.onlineDonationHref} className="underline">
-                {t.contactPopup.onlineDonation}
-              </a>
-            </div>
+            {donateHref && (
+              <div className="pt-[10px]">
+                <a href={donateHref} className="underline">
+                  {t.contactPopup.onlineDonation}
+                </a>
+              </div>
+            )}
             <div className="absolute top-7 right-7">
               <button onClick={() => setPopupOpen(false)} className="w-[80px]" aria-label="Schliessen">
                 <img src="/assets/zu.svg" alt="" />
@@ -119,16 +129,16 @@ export default function Layout() {
         </div>
       )}
 
-      {/* header */}
+      {/* Kopfzeile */}
       <header className="bg-lila px-[30px] pt-[5px] pb-[5px] w-full fixed z-40">
         <div className="py-2">
           <div className="w-[180px]">
-            <Link to={`/${lang}`}>
+            <Link to={base}>
               <img src="/assets/kleininaya.svg" alt="INAYA" />
             </Link>
           </div>
-          <div className="w-[180px] text-browndark font-semibold p-2">
-            <a href="https://inaya-soli.ch">basel | zürich | bern</a>
+          <div className="w-[220px] text-browndark font-semibold p-2">
+            <Link to="/">basel | zürich | bern</Link>
           </div>
           <div className="fixed top-0 right-7 z-40">
             <button onClick={() => setMenuOpen(true)} className="w-[80px]" aria-label="Menü öffnen">
@@ -147,7 +157,7 @@ export default function Layout() {
         </div>
       </header>
 
-      {/* translation notice for languages without full translation */}
+      {/* Hinweis bei unvollständiger Übersetzung */}
       {!isComplete(lang) && (
         <div className="pt-[140px] -mb-[110px] px-[30px]">
           <div className="max-w-3xl mx-auto bg-lima text-gris text-sm px-4 py-2">
@@ -157,17 +167,26 @@ export default function Layout() {
       )}
 
       <main className="w-full pt-[140px] pb-[60px]">
-        <Outlet context={{ t, lang }} />
+        <Outlet context={{ t, lang, city: c, cityCode: city, base, donateHref }} />
       </main>
 
       <footer className="bg-purple-800 text-purple-300 font-extralight tracking-wide py-[30px] px-[30px]">
         <ul className="max-w-3xl mx-auto mb-10 text-center">
           <li>
-            <a href={`mailto:${t.contactPopup.email}`}>{t.footer.orgLine}</a>
+            <a href={`mailto:${c.email}`}>
+              {c.org} // {c.email}
+            </a>
           </li>
-          <li>{t.footer.account}</li>
-          <li>{t.footer.iban}</li>
-          <li>{t.footer.city}</li>
+          <li>{c.konto}</li>
+          <li>{c.iban}</li>
+          <li>{c.cityLine}</li>
+          {c.instagram && (
+            <li className="pt-2">
+              <a href={c.instagram} target="_blank" rel="noreferrer" className="underline">
+                Instagram
+              </a>
+            </li>
+          )}
           <li className="pt-4">
             <a href="/datenschutz.html">{t.footer.privacyLabel || 'AGBs und Datenschutz'}</a>
           </li>

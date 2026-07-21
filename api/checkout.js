@@ -2,9 +2,13 @@
 // for the cart and returns the payment link.
 //
 // Setup (Vercel project → Settings → Environment Variables):
-//   ZAHLS_INSTANCE   – your zahls.ch instance name (e.g. "inaya")
+//   ZAHLS_INSTANCE   – zahls.ch instance name (e.g. "inaya")
 //   ZAHLS_API_SECRET – API secret from the zahls.ch dashboard
 //   ZAHLS_API_BASE   – optional, defaults to https://api.zahls.ch/v1.0
+//
+// Getrennte Konten pro Stadt: optional stadtspezifische Variablen setzen,
+// z.B. ZAHLS_INSTANCE_ZU / ZAHLS_API_SECRET_ZU. Fällt auf die generischen
+// Variablen zurück, wenn keine stadtspezifischen gesetzt sind.
 //
 // Until these are set, the endpoint returns 501 and the shop shows
 // a friendly "checkout not available yet" message.
@@ -18,20 +22,26 @@ const PRICES = {
   sticker: 5,
 }
 
+const VALID_CITIES = ['ba', 'zu', 'be']
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'method not allowed' })
   }
 
-  const instance = process.env.ZAHLS_INSTANCE
-  const secret = process.env.ZAHLS_API_SECRET
+  const { items, lang, city } = req.body || {}
+  const cityCode = VALID_CITIES.includes(city) ? city : 'zu'
+  const suffix = cityCode.toUpperCase()
+
+  // Stadtspezifisches Konto bevorzugen, sonst generisch
+  const instance = process.env[`ZAHLS_INSTANCE_${suffix}`] || process.env.ZAHLS_INSTANCE
+  const secret = process.env[`ZAHLS_API_SECRET_${suffix}`] || process.env.ZAHLS_API_SECRET
   const base = process.env.ZAHLS_API_BASE || 'https://api.zahls.ch/v1.0'
 
   if (!instance || !secret) {
     return res.status(501).json({ error: 'checkout not configured' })
   }
 
-  const { items, lang } = req.body || {}
   if (!Array.isArray(items) || items.length === 0) {
     return res.status(400).json({ error: 'empty cart' })
   }
@@ -51,9 +61,9 @@ export default async function handler(req, res) {
   const params = {
     amount: Math.round(totalChf * 100), // cents
     currency: 'CHF',
-    purpose: `INAYA Soli-Shop: ${description.join(', ')}`.slice(0, 250),
-    successRedirectUrl: `https://${req.headers.host}/${lang || 'de'}/shop?paid=1`,
-    failedRedirectUrl: `https://${req.headers.host}/${lang || 'de'}/shop`,
+    purpose: `INAYA Soli-Shop ${suffix}: ${description.join(', ')}`.slice(0, 250),
+    successRedirectUrl: `https://${req.headers.host}/${cityCode}/${lang || 'de'}/shop?paid=1`,
+    failedRedirectUrl: `https://${req.headers.host}/${cityCode}/${lang || 'de'}/shop`,
   }
 
   // Payrexx/zahls.ch API signature: HMAC-SHA256 over the url-encoded body

@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, Navigate } from 'react-router-dom'
 import { products, donationLink, formatChf } from '../data/products'
 import { useCart } from '../context/CartContext'
 import DonationMeter from '../components/DonationMeter'
 
 export default function Shop() {
-  const { t, lang } = useOutletContext()
+  const { t, lang, city, cityCode, base } = useOutletContext()
   const s = t.store
+
+  // Soli-Shop gibt es nur in Städten mit hasShop (aktuell Zürich)
+  if (!city.hasShop) return <Navigate to={base} replace />
 
   return (
     <div className="max-w-3xl mx-auto mb-10">
@@ -20,7 +23,7 @@ export default function Shop() {
         ))}
       </div>
 
-      <Cart s={s} lang={lang} />
+      <Cart s={s} lang={lang} cityCode={cityCode} />
 
       {/* donations */}
       <div className="bg-lima py-[30px] mb-10">
@@ -34,15 +37,19 @@ export default function Shop() {
         </div>
         <div className="text-contentbold pt-[10px]">{s.bankTitle}</div>
         <div className="text-content">
-          {t.footer.orgLine}
+          {city.org}
           <br />
-          {t.footer.iban}
+          {city.iban}
         </div>
         <div className="px-[30px] flex gap-6 flex-wrap">
-          <a href={t.contactPopup.onlineDonationHref}>
-            <img src="/assets/qr-code_bankkontoZH.jpeg" className="w-[160px]" alt="Bank QR-Code" />
-          </a>
-          <img src="/assets/qrtwintZH.jpg" className="w-[160px]" alt="TWINT QR-Code" />
+          {city.bankQr && (
+            <a href={city.onlineDonation ? `${city.onlineDonation}?lng=${lang}` : undefined}>
+              <img src={city.bankQr} className="w-[160px]" alt="Bank QR-Code" />
+            </a>
+          )}
+          {city.twintQr && (
+            <img src={city.twintQr} className="w-[160px]" alt="TWINT QR-Code" />
+          )}
         </div>
       </div>
     </div>
@@ -92,7 +99,7 @@ function ProductCard({ product, s, lang }) {
   )
 }
 
-function Cart({ s, lang }) {
+function Cart({ s, lang, cityCode }) {
   const cart = useCart()
   const [status, setStatus] = useState('idle') // idle | busy | unavailable | error
 
@@ -112,6 +119,7 @@ function Cart({ s, lang }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           lang,
+          city: cityCode,
           items: cart.items.map((i) => ({ id: i.id, size: i.size, qty: i.qty })),
         }),
       })
