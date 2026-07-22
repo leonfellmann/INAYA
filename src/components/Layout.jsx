@@ -130,7 +130,7 @@ export default function Layout() {
       )}
 
       {/* Kopfzeile */}
-      <header className="bg-lila px-[30px] pt-[5px] pb-[5px] w-full fixed z-40">
+      <header className="bg-lila px-[30px] pt-[5px] pb-[5px] w-full fixed z-40 border-b-[3px] border-elektro">
         <div className="py-2">
           <div className="w-[180px]">
             <Link to={base}>
@@ -170,27 +170,38 @@ export default function Layout() {
         <Outlet context={{ t, lang, city: c, cityCode: city, base, donateHref }} />
       </main>
 
-      <footer className="bg-purple-800 text-purple-300 font-extralight tracking-wide py-[30px] px-[30px]">
-        <ul className="max-w-3xl mx-auto mb-10 text-center">
-          <li>
-            <a href={`mailto:${c.email}`}>
-              {c.org} // {c.email}
-            </a>
-          </li>
-          <li>{c.konto}</li>
-          <li>{c.iban}</li>
-          <li>{c.cityLine}</li>
+      <footer className="bg-gris text-lila tracking-wide pt-9 pb-11 px-[30px] border-t-[3px] border-magenta">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="font-display text-white text-xl tracking-wide">{c.org}</div>
+          <a href={`mailto:${c.email}`} className="block mt-1 text-turc">
+            {c.email}
+          </a>
+          <div className="mt-3 text-sm font-light leading-relaxed text-lila/90">
+            {c.konto}
+            <br />
+            {c.iban}
+            <br />
+            {c.cityLine}
+          </div>
           {c.instagram && (
-            <li className="pt-2">
-              <a href={c.instagram} target="_blank" rel="noreferrer" className="underline">
-                Instagram
-              </a>
-            </li>
+            <a
+              href={c.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block mt-3 text-turc underline"
+            >
+              Instagram
+            </a>
           )}
-          <li className="pt-4">
-            <a href="/datenschutz.html">{t.footer.privacyLabel || 'AGBs und Datenschutz'}</a>
-          </li>
-        </ul>
+          <div className="mt-6 flex flex-col items-center gap-2 text-sm">
+            <Link to="/" className="font-display tracking-[0.18em] text-white/90">
+              basel | zürich | bern
+            </Link>
+            <a href="/datenschutz.html" className="text-lila/70 underline">
+              {t.footer.privacyLabel || 'AGBs und Datenschutz'}
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   )

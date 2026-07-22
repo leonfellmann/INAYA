@@ -29,7 +29,8 @@ body {
 
 /* ---- INAYA city opener (eye landing, used by CityChooser) ---- */
 .iz{position:relative;min-height:100dvh;width:100%;background:#E9C7F5;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;isolation:isolate}
-.iz .burst{position:absolute;inset:-12%;display:flex;align-items:center;justify-content:center;z-index:1}
+.iz .burst{position:absolute;inset:-12%;display:flex;align-items:center;justify-content:center;z-index:1;will-change:transform;animation:iz-spin 220s linear infinite}
+@keyframes iz-spin{to{transform:rotate(360deg)}}
 .iz .burst svg{width:100%;height:100%;overflow:visible}
 .iz .grain{position:absolute;inset:0;z-index:4;pointer-events:none;mix-blend-mode:multiply;opacity:.32;background-size:220px 220px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
 .iz .stack{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;width:90%;max-width:760px}
@@ -48,4 +49,11 @@ body {
   .iz *{animation-duration:.001s!important;animation-delay:0s!important}
   .iz .logo,.iz .ct{opacity:1!important;transform:none!important}
   .iz .eyeParts{transform:scaleY(1)!important}
+  .iz .burst{animation:none!important}
 }
+
+/* ---- INAYA site facelift (blend: Anton headlines + electric-blue accents, pastel sections) ---- */
+.font-display{font-family:'Anton',sans-serif}
+.hero-grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.2;background-size:200px 200px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.sec-head{font-family:'Anton',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#2b17ff;display:flex;align-items:center;gap:.5em;font-size:1.15rem}
+.sec-head::before{content:'';width:.55em;height:.55em;border-radius:50%;background:#ff00e6;display:inline-block;flex:none}

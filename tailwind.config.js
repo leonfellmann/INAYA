@@ -13,6 +13,8 @@ export default {
         gris: '#1A1A1A',
         lightblue: '#3000f0',
         darkblue: '#562cff',
+        elektro: '#2b17ff',
+        magenta: '#ff00e6',
       },
     },
   },

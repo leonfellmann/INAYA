@@ -13,19 +13,20 @@ export default function News({ t, lang }) {
   }, [])
 
   return (
-    <div className="max-w-3xl mx-auto mb-10">
-      <h2 className="text-h1">{t.home.newsTitle}</h2>
+    <div className="max-w-3xl mx-auto mb-12 px-[30px]">
+      <h2 className="sec-head mb-5">{t.home.newsTitle}</h2>
       {entries === null || entries.length === 0 ? (
-        <div className="text-h2 pt-[30px]">
-          <b>{t.home.newsBody}</b>
-        </div>
+        <div className="text-gris font-semibold text-lg leading-snug">{t.home.newsBody}</div>
       ) : (
-        <ul>
+        <ul className="flex flex-col gap-3">
           {entries.map((e, i) => (
-            <li key={i} className="text-content">
-              <span className="font-semibold text-browndark">{formatDate(e.date, lang)}</span>
-              <br />
-              <b>{e.text[lang] || e.text.de}</b>
+            <li key={i} className="border-2 border-gris rounded-2xl px-5 py-4 bg-white/50">
+              <span className="font-display text-[12px] tracking-[0.08em] text-elektro">
+                {formatDate(e.date, lang)}
+              </span>
+              <div className="font-bold text-gris leading-snug mt-1">
+                {e.text[lang] || e.text.de}
+              </div>
             </li>
           ))}
         </ul>

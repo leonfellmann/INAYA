@@ -19,21 +19,27 @@ export default function Events({ t, lang }) {
   if (!events || events.length === 0) return null
 
   return (
-    <div className="max-w-3xl mx-auto mb-10">
-      <h2 className="text-h1">{t.store.eventsTitle}</h2>
-      <ul>
+    <div className="max-w-3xl mx-auto mb-12 px-[30px]">
+      <h2 className="sec-head mb-5">{t.store.eventsTitle}</h2>
+      <ul className="flex flex-col gap-3">
         {events.map((e, i) => (
-          <li key={i} className="text-content bg-white/40 mx-[30px] mb-4 p-4">
-            <span className="font-semibold text-browndark">
+          <li key={i} className="border-2 border-gris rounded-2xl px-5 py-4 bg-white/50">
+            <span className="font-display text-[12px] tracking-[0.08em] text-elektro">
               {formatDate(e.date, lang)}
               {e.time ? ` · ${e.time}` : ''}
               {e.location ? ` · ${e.location}` : ''}
             </span>
-            <br />
-            <b>{e.title[lang] || e.title.de}</b>
+            <div className="font-bold text-gris leading-snug mt-1">
+              {e.title[lang] || e.title.de}
+            </div>
             {e.ticketUrl && (
-              <div className="pt-2">
-                <a href={e.ticketUrl} target="_blank" rel="noreferrer" className="btn-donate">
+              <div className="pt-3">
+                <a
+                  href={e.ticketUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block font-display tracking-wide bg-elektro text-white px-4 py-2 rounded-full text-sm transition-transform hover:-translate-y-0.5"
+                >
                   {t.store.tickets}
                 </a>
               </div>
