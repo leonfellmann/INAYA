@@ -8,7 +8,7 @@ body {
 
 @layer components {
   .text-h1 {
-    @apply text-3xl text-gris font-bold tracking-wide leading-snug pb-10 px-[30px];
+    @apply text-3xl text-elektro font-display uppercase tracking-tight leading-tight pb-8 px-[30px];
   }
   .text-h2 {
     @apply text-2xl font-semibold leading-snug tracking-wide px-[30px] pb-[20px] text-browndark;
@@ -20,14 +20,14 @@ body {
     @apply text-gris font-bold tracking-wide leading-loose px-[30px];
   }
   .btn-shop {
-    @apply inline-block bg-gris text-white px-4 py-2 text-base transition-opacity hover:opacity-60 cursor-pointer;
+    @apply inline-block bg-gris text-white rounded-full px-5 py-2 text-base transition-colors hover:bg-elektro cursor-pointer;
   }
   .btn-donate {
-    @apply inline-block bg-[#725792] text-white px-4 py-2 text-base transition-colors hover:bg-turc hover:text-gris cursor-pointer;
+    @apply inline-block bg-gris text-lima font-display uppercase rounded-full px-6 py-3 text-base transition-colors hover:bg-elektro hover:text-lila cursor-pointer;
   }
 }
 
-/* ---- INAYA city opener (eye landing, used by CityChooser) ---- */
+/* ---- INAYA city opener (eye landing, used by CityChooser) — unchanged ---- */
 .iz{position:relative;min-height:100dvh;width:100%;background:#E9C7F5;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;isolation:isolate}
 .iz .burst{position:absolute;inset:-12%;display:flex;align-items:center;justify-content:center;z-index:1;will-change:transform;animation:iz-spin 220s linear infinite}
 @keyframes iz-spin{to{transform:rotate(360deg)}}
@@ -52,8 +52,18 @@ body {
   .iz .burst{animation:none!important}
 }
 
-/* ---- INAYA site facelift (blend: Anton headlines + electric-blue accents, pastel sections) ---- */
-.font-display{font-family:'Anton',sans-serif}
-.hero-grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.2;background-size:200px 200px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
-.sec-head{font-family:'Anton',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#2b17ff;display:flex;align-items:center;gap:.5em;font-size:1.15rem}
-.sec-head::before{content:'';width:.55em;height:.55em;border-radius:50%;background:#ff00e6;display:inline-block;flex:none}
+/* ---- INAYA redesign: Rubik Black display, home starburst hero ---- */
+.font-display{font-family:'Rubik',sans-serif;font-weight:800}
+
+/* Home hero: eye centred in the rotating grainy burst (used by StarBurst.jsx) */
+.inaya-burst-wrap{position:relative;height:300px;isolation:isolate}
+.inaya-burst{position:absolute;left:50%;top:50%;width:620px;height:620px;margin-left:-310px;margin-top:-310px;z-index:0;animation:iz-spin 200s linear infinite;will-change:transform}
+.inaya-burst svg{width:100%;height:100%;overflow:visible;display:block}
+.inaya-grain{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:multiply;opacity:.24;background-size:220px 220px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+.inaya-eye{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:150px}
+.inaya-eye .blink{display:block;animation:iz-blink 5.5s ease-in-out infinite;transform-origin:center}
+@keyframes iz-blink{0%,90%,100%{transform:scaleY(1)}94%,97%{transform:scaleY(.08)}}
+@media (prefers-reduced-motion:reduce){
+  .inaya-burst{animation:none!important}
+  .inaya-eye .blink{animation:none!important}
+}

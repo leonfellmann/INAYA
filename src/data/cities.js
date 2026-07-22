@@ -2,6 +2,19 @@
 // Jede Stadt hat eigene Spendendaten, Kontakt und (nur Zürich) einen Soli-Shop.
 // Alle Daten von inaya-soli.ch übernommen (Stand 2026-07).
 
+// Geteilte solidarische Organisationen (auf inaya-soli.ch verifizierte Zürcher Liste).
+// TODO: Falls Basel/Bern eigene, abweichende Partner-Orgs haben, hier pro Stadt ergänzen.
+const SHARED_FRIENDS = [
+  { label: 'Feministisches Streikhaus', href: 'https://streikhaus.ch/' },
+  { label: 'Telefon gegen Gewalt', href: 'https://telefon-gegen-gewalt.ch/' },
+  { label: 'Transgender Network Switzerland', href: 'https://www.tgns.ch/de/' },
+  { label: 'Solinetz', href: 'https://solinetz-zh.ch/' },
+  { label: 'Brava (ehem. Terre des Femmes)', href: 'https://www.brava-ngo.ch/' },
+  { label: 'Milchjugend', href: 'https://milchjugend.ch/' },
+  { label: 'FIZ Frauenhandel & Migration', href: 'https://www.fiz-info.ch/' },
+  { label: 'LOS Lesbenorganisation Schweiz', href: 'https://www.los.ch/' },
+]
+
 export const CITIES = {
   ba: {
     code: 'ba',
@@ -12,18 +25,19 @@ export const CITIES = {
     konto: 'Konto: 15-809915-6',
     iban: 'IBAN: CH07 0900 0000 1580 9915 6',
     cityLine: '4054 Basel',
-    // Titel-Wortlaut (Basel nutzt "genderqueeren")
     slogan: 'Solidarisch mit geflüchteten Frauen & genderqueeren Menschen',
-    // Deutscher Einleitungstext (stadtspezifisch)
     intro:
       'INAYA Basel ist eine lokale, staatlich unabhängige Struktur, die sich direkt mit geflüchteten Frauen und genderqueeren Menschen solidarisiert. Es werden alternative Unterstützungsstrukturen aufgebaut, solidarische Netzwerke geschaffen und Beziehungen gepflegt. Eine Priorität ist dabei die Umverteilung von benötigtem Geld von denjenigen, die genug haben, zu jenen, die zu wenig Geld haben. So sollen Grundbedürfnisse sicher und langfristig gedeckt werden. Der Aufbau solidarischer, gemeinschaftlicher und umverteilender Strukturen ist Teil einer grundlegenden Kritik am vorherrschenden repressiven Migrations- und Asylsystem; ein System, das Menschen aktiv Möglichkeiten für eine sichere Lebensgrundlage verweigert, von der Gesellschaft ausschliesst und isoliert. Deswegen INAYA!',
-    onlineDonation: null, // Basel hat (noch) keinen RaiseNow-Link
-    // TODO: Bild lokal ablegen (public/assets/twint-basel.png) und Pfad ändern.
-    // Vorläufig von der bestehenden Live-Seite verlinkt:
+    onlineDonation: null,
     twintQr: 'https://inaya-soli.ch/ba/de/assets/qr.png',
     bankQr: null,
     hasShop: false,
     friendsLabel: 'Freund:innen',
+    friends: [
+      { label: 'INAYA Zürich', href: '/zu' },
+      { label: 'INAYA Bern', href: '/be' },
+      ...SHARED_FRIENDS,
+    ],
     instagram: null,
   },
   zu: {
@@ -43,6 +57,12 @@ export const CITIES = {
     bankQr: '/assets/qr-code_bankkontoZH.jpeg',
     hasShop: true,
     friendsLabel: 'Freund:innen',
+    friends: [
+      { label: 'INAYA Basel', href: '/ba' },
+      { label: 'INAYA Bern', href: '/be' },
+      ...SHARED_FRIENDS,
+      { label: 'Zurich Legal', href: 'https://zurichlegal.ch/' },
+    ],
     instagram: null,
   },
   be: {
@@ -54,17 +74,19 @@ export const CITIES = {
     konto: 'Konto: 16-431765-1',
     iban: 'IBAN: CH76 0900 0000 1643 1765 1',
     cityLine: '3000 Bern',
-    // Bern nutzt "queeren" statt "genderqueeren"
     slogan: 'Solidarisch mit geflüchteten Frauen & queeren Menschen',
     intro:
       'INAYA Bern ist eine lokale Struktur, die sich mit geflüchteten queeren Menschen und Frauen solidarisiert und sie direkt unterstützt. Eine Priorität stellt die Umverteilung von Geld dar, von Denjenigen, die genug haben, zu Jenen, die zu wenig haben. So sollen Grundbedürfnisse nachhaltig gedeckt werden. Für geflüchtete queere Personen und Frauen sind bestehende Unterstützungsstrukturen nicht vorhanden oder nur schwer zugänglich. Deswegen braucht es INAYA!',
     onlineDonation: null,
-    // TODO: Bild lokal ablegen (public/assets/twint-bern.png) und Pfad ändern.
-    // Vorläufig von der bestehenden Live-Seite verlinkt:
     twintQr: 'https://inaya-soli.ch/be/de/assets/qr-lila.png',
     bankQr: null,
     hasShop: false,
     friendsLabel: 'Netzwerk',
+    friends: [
+      { label: 'INAYA Zürich', href: '/zu' },
+      { label: 'INAYA Basel', href: '/ba' },
+      ...SHARED_FRIENDS,
+    ],
     instagram: 'https://www.instagram.com/inayabern',
   },
 }

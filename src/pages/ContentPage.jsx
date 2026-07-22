@@ -1,9 +1,10 @@
 import { useOutletContext } from 'react-router-dom'
+import { getCity } from '../data/cities'
 
 // Rendert give / get / about / friends aus der i18n-sections-Struktur.
-// Auf der "give"-Seite filtern wir die (veralteten) Bankdetails aus dem
-// Quelltext heraus und zeigen die korrekten, stadtspezifischen Daten
-// einmalig über <GiveExtras>.
+// "give": veraltete Bankdetails werden herausgefiltert, korrekte stadtspezifische
+// Daten kommen über <GiveExtras>. "friends": Links kommen aus cities.js (city.friends),
+// damit jede Stadt ihr eigenes Netzwerk zeigt (kein Zürich/Basel-Mix mehr).
 function isBankSection(s) {
   const h = s.heading || ''
   return h.includes('Konto:') || h.includes('IBAN') || h.includes('TWINT')
@@ -18,21 +19,22 @@ export default function ContentPage({ section }) {
   const sections =
     section === 'give' ? data.sections.filter((s) => !isBankSection(s)) : data.sections
 
-  const renderSection = (s, i) => (
+  const renderSection = (s, i, links) => (
     <section key={i} className={i > 0 ? 'pt-[30px]' : ''}>
       {s.heading && <h1 className={i === 0 ? 'text-h1' : 'text-h2'}>{s.heading}</h1>}
       {s.body && <div className="text-content whitespace-pre-line">{s.body}</div>}
-      {s.links && s.links.length > 0 && (
-        <ul className="text-content">
-          {s.links.map((l, j) => (
-            <li key={j}>
+      {links && links.length > 0 && (
+        <ul className="px-[30px]">
+          {links.map((l, j) => (
+            <li key={j} className="border-b-2 border-gris">
               <a
                 href={l.href}
-                className="underline hover:opacity-60"
+                className="flex items-center justify-between py-[15px] font-display uppercase text-base text-gris hover:text-magenta"
                 target={l.href?.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
               >
-                {l.label}
+                <span>{l.label}</span>
+                <span className="text-elektro">↗</span>
               </a>
             </li>
           ))}
@@ -51,10 +53,37 @@ export default function ContentPage({ section }) {
     )
   }
 
-  return <div className="max-w-3xl mx-auto mb-10">{sections.map(renderSection)}</div>
+  if (section === 'friends') {
+    const heading = sections[0]?.heading || city.friendsLabel
+    return (
+      <div className="max-w-3xl mx-auto mb-10">
+        <section>
+          <h1 className="text-h1">{heading}</h1>
+          <ul className="px-[30px] border-t-2 border-gris">
+            {(city.friends || []).map((l, j) => (
+              <li key={j} className="border-b-2 border-gris">
+                <a
+                  href={l.href}
+                  className="flex items-center justify-between py-[15px] font-display uppercase text-base text-gris hover:text-magenta"
+                  target={l.href?.startsWith('http') ? '_blank' : undefined}
+                  rel="noreferrer"
+                >
+                  <span>{l.label}</span>
+                  <span className="text-elektro">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    )
+  }
+
+  return <div className="max-w-3xl mx-auto mb-10">{sections.map((s, i) => renderSection(s, i))}</div>
 }
 
-// Bankdetails, QR-Codes und Online-Spende für die "give"-Seite — stadtspezifisch.
+// Bankdetails, Online-Spende und TWINT für die "give"-Seite — stadtspezifisch.
+// Der Bank-QR-Code wurde auf Wunsch entfernt; Online-Spende + TWINT-QR bleiben.
 function GiveExtras({ city, lang }) {
   const rn = { de: 'de', fr: 'fr', it: 'it', en: 'en' }[lang] || 'en'
   const donateHref = city.onlineDonation ? `${city.onlineDonation}?lng=${rn}` : null
@@ -70,21 +99,11 @@ function GiveExtras({ city, lang }) {
             <li>{city.cityLine}</li>
           </ul>
         </div>
-        {(city.bankQr || donateHref) && (
-          <div className="px-[30px] pb-[30px]">
-            {city.bankQr && (
-              <a href={donateHref || undefined}>
-                <img src={city.bankQr} className="w-2/5 max-w-[220px]" alt="Bank QR-Code" />
-              </a>
-            )}
-            {donateHref && (
-              <>
-                <br />
-                <a href={donateHref} className="underline font-semibold">
-                  Online spenden
-                </a>
-              </>
-            )}
+        {donateHref && (
+          <div className="px-[30px] pb-[10px]">
+            <a href={donateHref} className="btn-donate">
+              Online spenden →
+            </a>
           </div>
         )}
       </div>
@@ -94,7 +113,11 @@ function GiveExtras({ city, lang }) {
         <div className="text-contentbold">{city.org}</div>
         {city.twintQr && (
           <div className="px-[30px] pb-[20px]">
-            <img src={city.twintQr} className="w-2/5 max-w-[220px]" alt="TWINT QR-Code" />
+            <img
+              src={city.twintQr}
+              className="w-2/5 max-w-[220px] border-[3px] border-gris"
+              alt="TWINT QR-Code"
+            />
           </div>
         )}
       </div>
