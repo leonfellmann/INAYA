@@ -31,10 +31,6 @@ body {
 .iz{position:relative;min-height:100dvh;width:100%;background:#E9C7F5;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;isolation:isolate}
 .iz .burst{position:absolute;inset:-12%;display:flex;align-items:center;justify-content:center;z-index:1}
 .iz .burst svg{width:100%;height:100%;overflow:visible}
-.iz .rays{transform-origin:50% 50%;animation:iz-spin 140s linear infinite}
-.iz .core{transform-origin:50% 50%;animation:iz-pulse 5s ease-in-out infinite}
-@keyframes iz-spin{to{transform:rotate(360deg)}}
-@keyframes iz-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 .iz .grain{position:absolute;inset:0;z-index:4;pointer-events:none;mix-blend-mode:multiply;opacity:.32;background-size:220px 220px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
 .iz .stack{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;width:90%;max-width:760px}
 .iz .eye{width:40%;max-width:300px;overflow:visible}
